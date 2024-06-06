@@ -1,0 +1,82 @@
+.main {
+    width: fit-content;
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.game {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.row {
+    display: inline-block;
+}
+
+.box {
+    box-sizing: border-box;
+    min-width: 100px;
+    float: left;
+    aspect-ratio: 1;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.box p {
+    display: inline-block;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    font-size: 50px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.top {
+    border-top: none;
+}
+
+.bottom {
+    border-bottom: none;
+}
+
+.left {
+    border-left: none;
+}
+
+.right {
+    border-right: none;
+}
+
+.game-over {
+    background-color: gray;
+    color: white;
+}
+
+button {
+    border: 0px;
+    background-color: #555;
+    color: white;
+    border-radius: 0px;
+    padding: 10px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:active {
+    opacity: 0.6;
+}
