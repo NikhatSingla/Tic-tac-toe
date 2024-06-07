@@ -1,6 +1,11 @@
 const holders = document.querySelectorAll(".box");
 const turn = document.querySelector(".turn");
 
+const click_sound_1 = new Audio("Assets/click_sound_1.mp3");
+const click_sound_2 = new Audio("Assets/click_sound_2.mp3");
+const win_sound = new Audio("Assets/win_sound.wav");
+const draw_sound = new Audio("Assets/draw_sound.wav");
+
 const positions = {
     "top left box": [1, 1],
     "top box": [1, 2],
@@ -31,6 +36,14 @@ let cross;
 let insertion;
 
 function resetAll() {
+    win_sound.pause();
+    draw_sound.pause();
+    click_sound_1.pause();
+    click_sound_2.pause();
+    win_sound.currentTime = 0;
+    draw_sound.currentTime = 0;
+    click_sound_1.currentTime = 0;
+    click_sound_2.currentTime = 0;
     turnsPlayed = 0;
     gameOver = false;
     zero = [];
@@ -77,12 +90,18 @@ function append(box) {
             if (insertion === "O") {
                 zero.push(box.getAttribute("class"));
                 if (checkWinner(zero)) {
+                    win_sound.currentTime = 0;
+                    win_sound.play();
                     turn.innerText = `${player1} won.`;
                     gameOver = true;
                 } else {
                     if (turnsPlayed === 9) {
+                        draw_sound.currentTime = 0;
+                        draw_sound.play();
                         turn.innerText = `Draw. Please press reset button.`;
                     } else {
+                        click_sound_1.currentTime = 0;
+                        click_sound_1.play();
                         turn.innerText = `${player2}'s turn.`;
                         insertion = "X";
                     }
@@ -90,9 +109,13 @@ function append(box) {
             } else {
                 cross.push(box.getAttribute("class"));
                 if (checkWinner(cross)) {
+                    win_sound.currentTime = 0;
+                    win_sound.play();
                     turn.innerText = `${player2} won.`;
                     gameOver = true;
                 } else {
+                    click_sound_2.currentTime = 0;
+                    click_sound_2.play();
                     turn.innerText = `${player1}'s turn.`;
                     insertion = "O";
                 }

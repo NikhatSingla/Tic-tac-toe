@@ -32,6 +32,7 @@
     display: flex;
     flex-flow: column;
     justify-content: center;
+    transition: 0.4s ease;
 }
 
 .box p {
